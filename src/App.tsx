@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import "./App.css";
+import ContactList from './Components/ContactList'
+import Contact from './Components/Contact'
 
 function App() {
+  const client = new ApolloClient({
+    uri: "http://localhost:3001/graphql",
+    cache: new InMemoryCache(),
+  })
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ApolloProvider client={client}>
+        <Router>
+          <Route path="/" exact><ContactList /></Route>
+          <Route path="/contact/:id"><Contact /></Route>
+        </Router>
+      </ApolloProvider>
+    </>
+  )
 }
 
-export default App;
+export default App
