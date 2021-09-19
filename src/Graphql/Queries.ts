@@ -24,6 +24,6 @@ export const GET_CONTACT = gql`
         eyeColor
         email
         company
-      }
     }
+  }
 `

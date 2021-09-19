@@ -7,7 +7,7 @@ import Contact from './Components/Contact'
 
 function App() {
   const client = new ApolloClient({
-    uri: "http://localhost:3001/graphql",
+    uri: "http://localhost:4000/graphql",
     cache: new InMemoryCache(),
   })
 

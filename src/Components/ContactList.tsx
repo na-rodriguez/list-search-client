@@ -4,7 +4,7 @@ import { useLazyQuery } from '@apollo/client'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Container, Row, Col, Form } from 'react-bootstrap'
-import ContactDetail from './ContactDetail'
+import ContactListDetail from './ContactListDetail'
 
 
 export default function ContactList() {
@@ -40,13 +40,7 @@ export default function ContactList() {
             </Form.Group>
         </Form>
         <Container>
-            <Row xs={1} md={4} className="g-4">
-                {contacts.map((contact: any) => (
-                    <Col key={contact.id}>
-                        <ContactDetail contact={contact} />
-                    </Col>
-                ))}
-            </Row>
+            <ContactListDetail contacts={contacts} />
         </Container>
     </div>
     )

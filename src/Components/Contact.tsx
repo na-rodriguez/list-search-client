@@ -5,7 +5,7 @@ import { GET_CONTACT } from '../Graphql/Queries'
 import { useLazyQuery } from '@apollo/client'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Row, Col, Image } from 'react-bootstrap'
+import { Row, Col, Image, Container } from 'react-bootstrap'
 
 export default function Contact(props: any) {
     const { id } = useParams<{ id: string }>()
@@ -19,6 +19,7 @@ export default function Contact(props: any) {
         email: '',
         picture: '',
     })
+
     useEffect(() => {
         getContact()
         if (data)
@@ -26,7 +27,7 @@ export default function Contact(props: any) {
     }, [data, getContact])
 
     return (
-        <>
+        <Container>
             <Row>
                 <Col xs={3} md={2}>
                     <Image src={`${contact.picture}/100px180?text=Image cap`} rounded fluid />
@@ -37,6 +38,6 @@ export default function Contact(props: any) {
                     <div>email: {contact.email}</div>
                 </Col>
             </Row>
-        </>
+        </Container>
     )
 }

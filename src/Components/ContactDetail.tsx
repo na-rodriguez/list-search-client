@@ -11,7 +11,7 @@ export default function ContactDetail(props: any) {
       <Link to={`/contact/${id}`}>
         <Card.Img variant="top" src={`${picture}/100px180?text=Image cap`} />
       </Link>
-      <Card.Body style={{ paddingTop: "1rem"}}>
+      <Card.Body style={{ paddingTop: "1rem", paddingLeft: '0', paddingRight:'0' }}>
           <div>name: {name}</div>
           <div>age: {age}</div>
           <div>eyeColor: {eyeColor}</div>
